@@ -2,13 +2,28 @@
   "name": "node-react-app",
   "version": "1.0.0",
   "scripts": {
-    "clean": "kill-port --port 9000,3000",
-    "client": "cd client && npm install && npm start",
-    "server": "cd api && npm install && npm start",
-    "dev": "concurrently \"npm run clean\" \"npm run server\" \"npm run client\""
+    "install-server": "cd client && npm install",
+    "install-client": "cd api && npm install",
+    "install-all": "npm install && concurrently \"npm run install-client\" \"npm run install-server\"",
+    "client": "cd client && npm start",
+    "server": "cd api && npm start",
+    "dev": "concurrently  \"npm run server\" \"npm run client\"",
+    "lint": "eslint . --ignore-pattern='client/node_modules/*' --ignore-pattern='api/node_modules/*'",
+    "lint:fix": "eslint . --ignore-pattern='client/node_modules/*' --ignore-pattern='api/node_modules/*' --fix"
   },
   "devDependencies": {
     "concurrently": "^4.0.1",
-    "kill-port": "^1.6.1"
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-jsx-control-statements": "^2.2.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1"
   }
 }

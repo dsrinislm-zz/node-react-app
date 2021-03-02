@@ -1,29 +1,36 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-const stocks = [{name:"Infosys", price:2.3},{name:"HCL", price:7.8},{name:"TCS", price:0.5},{name:"Harman", price:25}]
+const stocks = [
+  { name: 'Infosys', price: 2.3 },
+  { name: 'HCL', price: 7.31 },
+  { name: 'TCS', price: 0.5 },
+  { name: 'Harman', price: 25 },
+];
 
 const search = (array, filters) => {
   const filterKeys = Object.keys(filters);
-  return array.filter(item => {
+  return array.filter((item) => {
     // validates all filter criteria
-    return filterKeys.every(key => {
+    return filterKeys.every((key) => {
       // ignores an empty filter
       if (!filters[key].length) return true;
-      return filters[key].find(filter => filter === item[key]);
+      return filters[key].find(
+        (filter) => filter === item[key]
+      );
     });
   });
-}
+};
 /* GET stocks listing. */
-router.get('/:companies', function(req, res, next) {
-  const companies = req.params.companies.split(",");
+router.get('/:companies', function (req, res, next) {
+  const companies = req.params.companies.split(',');
   const filters = {
-    name: companies
+    name: companies,
   };
   const result = search(stocks, filters);
   res.json(search(stocks, filters));
 });
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.json(stocks);
 });
 

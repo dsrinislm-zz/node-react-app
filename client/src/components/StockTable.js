@@ -7,34 +7,39 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
-    table: {
-      marginTop:theme.spacing(2)
-    },
-  }));
-  const StockTable = (props) =>  {
-    const classes = useStyles(); 
-    const stocks =props.items;
- return(
-    <TableContainer component={Paper} className={classes.table} >
-        <Table aria-label="simple table">
+  table: {
+    marginTop: theme.spacing(2),
+  },
+}));
+const StockTable = (props) => {
+  const classes = useStyles();
+  const stocks = props.items;
+  return (
+    <TableContainer
+      component={Paper}
+      className={classes.table}
+    >
+      <Table aria-label="simple table">
         <TableHead>
-            <TableRow>
+          <TableRow>
             <TableCell>Company</TableCell>
             <TableCell align="right">Price</TableCell>
-            </TableRow>
+          </TableRow>
         </TableHead>
         <TableBody>
-            {stocks.map((row) => (
+          {stocks.map((row) => (
             <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row">
                 {row.name}
-                </TableCell>
-                <TableCell align="right">{row.price}</TableCell>
+              </TableCell>
+              <TableCell align="right">
+                {row.price}
+              </TableCell>
             </TableRow>
-            ))}
+          ))}
         </TableBody>
-        </Table>
+      </Table>
     </TableContainer>
-)
-  }
-  export default StockTable;
+  );
+};
+export default StockTable;
