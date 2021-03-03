@@ -1,9 +1,13 @@
 # node-react-app
 
-Installation
+**Installation**
 
-npm install
+npm run install-all
 
-Run the application
+**Run the application**
 
 npm run dev
+
+**Linting**
+
+npm run lint:fix
