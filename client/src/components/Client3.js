@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Grid from '@material-ui/core/Grid';
 import StockTable from './StockTable';
 const Client3 = (props) => {
   useEffect(() => {
@@ -7,7 +8,12 @@ const Client3 = (props) => {
       .then((res) => setStocks(res));
   }, []);
   const [stocks, setStocks] = useState([]);
-  return <StockTable items={stocks} />;
+  return (
+    <Grid item xs={12} sm={6}>
+      <h1>Client3</h1>
+      <StockTable items={stocks} />
+    </Grid>
+  );
 };
 
 export default Client3;

@@ -5,9 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App title="Stock change from Stock Exchange Server" />
-  </React.StrictMode>,
+  <App title="Stock change from Stock Exchange Server" />,
   document.getElementById('root')
 );
 
